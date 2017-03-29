@@ -1,0 +1,12 @@
+{
+  "name": "contempo-api",
+  "version": "1.0.0",
+  "description": "server api container",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/therealedsheenan/contempo-api.git",
+    "type": "git"
+  },
+  "author": "Sheenan Tenepre <sheenantenepre@gmail.com>",
+  "license": "MIT"
+}
