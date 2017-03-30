@@ -1,10 +1,10 @@
 {
-  "name": "contempo-api",
+  "name": "contempo-node-api",
   "version": "1.0.0",
   "description": "server api container",
   "main": "index.js",
   "repository": {
-    "url": "https://github.com/therealedsheenan/contempo-api.git",
+    "url": "https://github.com/therealedsheenan/contempo-node-api.git",
     "type": "git"
   },
   "scripts": {
