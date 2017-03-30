@@ -7,6 +7,12 @@
     "url": "https://github.com/therealedsheenan/contempo-api.git",
     "type": "git"
   },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "author": "Sheenan Tenepre <sheenantenepre@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.15.2"
+  }
 }
