@@ -1,7 +1,7 @@
-import getUsers from './users/get'
+import userRoutes from './users/userRoutes'
 
 const routes = function (app) {
-  getUsers(app)
+  userRoutes(app)
 }
 
 module.exports = routes
