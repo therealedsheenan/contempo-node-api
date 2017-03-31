@@ -1,7 +1,7 @@
 
 const index = function (app) {
   app.get('/api/', function (req, res) {
-    res.send({ message: 'Hello from index!' })
+    res.send({ message: 'Hello from index!!!' })
   })
 }
 

@@ -1,0 +1,15 @@
+{
+  "presets": [
+    "es2015",
+    "stage-0",
+    "latest"
+  ],
+  "env": {
+    "server": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}
