@@ -6,12 +6,12 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-//routes
-const index= require('./src/routes/index')
+// routes
+const routes = require('./src/routes/index')
 
 // initialization
 const app = express()
-const dbUrl = `mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@127.0.0.1`;
+const dbUrl = `mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@127.0.0.1`
 
 // DB Setup
 mongoose.connect(dbUrl)
@@ -22,6 +22,6 @@ app.use(cors())
 app.use(bodyParser.json({ type: '*/*' }))
 
 // sample route
-index(app)
+routes(app)
 
 module.exports = app
