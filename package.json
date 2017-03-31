@@ -8,11 +8,17 @@
     "type": "git"
   },
   "scripts": {
-    "start": "nodemon ./bin/www --exec babel-node"
+    "start": "nodemon ./bin/www --exec babel-node",
+    "lint": "NODE_ENV=test eslint src/"
   },
   "author": "Sheenan Tenepre <sheenantenepre@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
     "express": "^4.15.2"
   },
   "dependencies": {
@@ -28,6 +34,12 @@
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
     "dotenv": "^4.0.0",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
     "mongoose": "^4.9.2",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0"
