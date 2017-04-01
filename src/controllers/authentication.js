@@ -1,21 +1,35 @@
+import jwt from 'jsonwebtoken'
 import UserSchema from '../models/User/UserSchema'
+import bcrypt from 'bcrypt-nodejs'
+const secret = process.env.SECRET_KEY
 
-createUserToken = (user) => {
+const createUserToken = (user) => {
   return jwt.sign({
     sub: user.id,
     username: user.username,
-    email: user.email,
-    gravatar: createGravatarUrl(user.email),
-    scope
+    email: user.email
   }, secret, {
     algorithm: 'HS256',
-    expiresIn: "1h"
+    expiresIn: '1h'
   })
 }
 
-export const signup = (req, res, next) => {
-  const email = req.body.email
-  const password = req.body.password
+const hashPassword = (password, cb) => {
+  // Generate a salt at level 10 strength
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, (err, hash) => {
+      return cb(err, hash)
+    })
+  })
+}
+
+export const Signup = (req, res, next) => {
+  let {
+    username,
+    email,
+    password,
+    admin
+  } = req.body
 
   if (!email || !password) {
     return res
@@ -24,25 +38,38 @@ export const signup = (req, res, next) => {
   }
 
   // See if a user with the given email exists
-  UserSchema.findOne({ email: email }, (err, existingUser) => {
+  UserSchema.findOne({
+    $or: [
+      { email: req.body.email },
+      { username: req.body.username }
+    ]
+  }, (err, user) => {
     if (err) { return next(err) }
 
     // If a user with email does exist, return an error
-    if (existingUser) {
-      return res.status(422).send({ error: 'Email is in use' })
+    if (user) {
+      if (user.username === req.payload.username) {
+        return res.status(422).send({ error: 'Username is in use' })
+      }
+
+      if (user.email === req.payload.email) {
+        return res.status(422).send({ error: 'Email is in use' })
+      }
     }
 
     // If a user with email does NOT exist, create and save user record
-    const user = new UserSchema({
+    const newUser = new UserSchema({
       email: email,
-      password: password
+      username: username,
+      password: password,
+      admin: admin
     })
 
-    user.save((err) => {
+    newUser.save((err) => {
       if (err) { return next(err) }
 
       // Repond to request indicating the user was created
-      res.json({ token: tokenForUser(user) })
+      res.json({ token: createUserToken(newUser) })
     })
   })
 }

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import bcrypt from 'bycrypt-nodejs'
+import bcrypt from 'bcrypt-nodejs'
 
 const Schema = mongoose.Schema
 
@@ -10,4 +10,4 @@ const UserSchema = new Schema({
   admin: { type: Boolean, required: true }
 })
 
-export default UserSchema
+export default mongoose.model('user', UserSchema)
