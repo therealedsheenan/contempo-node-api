@@ -1,4 +1,4 @@
-import { Signup } from '../../controllers/authentication'
+import { Signup } from '../../controllers/user'
 // const Authentication = require('../../controllers/authentication')
 
 const userRoutes = (app) => {
