@@ -1,5 +1,5 @@
 import UserSchema from '../models/User/UserSchema'
-import { hashPassword } from '../models/User/utils/hashPassword'
+
 import { createToken } from '../models/User/utils/createToken'
 
 export const Signup = (req, res, next) => {
@@ -23,15 +23,9 @@ export const Signup = (req, res, next) => {
     admin: admin
   })
 
-  hashPassword(password, (err, hash) => {
-    if (err) { return err }
-    // assign generated hash to newUser
-    newUser.password = hash
-
-    newUser.save((err) => {
-      if (err) { return next(err) }
-      // Repond to request indicating the user was created
-      res.json({ token: createToken(newUser) })
-    })
+  newUser.save((err) => {
+    if (err) { return next(err) }
+    // Repond to request indicating the user was created
+    res.json({ token: createToken(newUser) })
   })
 }

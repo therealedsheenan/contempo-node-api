@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { hashPassword } from './utils/hashPassword'
 
 const Schema = mongoose.Schema
 
@@ -9,8 +10,13 @@ const UserSchema = new Schema({
   admin: { type: Boolean, required: true }
 })
 
-UserSchema.methods = {
-
-}
+UserSchema.pre('save', function (next) {
+  hashPassword(this.password, (err, hash) => {
+    if (err) { return err }
+    // assign generated hash to newUser
+    this.password = hash
+  })
+  next()
+})
 
 export default mongoose.model('user', UserSchema)
