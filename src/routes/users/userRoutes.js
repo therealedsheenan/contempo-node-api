@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Signup, SignIn } from '../../controllers/user'
 import passportStrategy from '../../services/passportStrategy'
 
