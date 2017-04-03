@@ -6,12 +6,12 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-//routes
-const index= require('./src/routes/index')
+// routes
+const routes = require('./src/routes/index')
 
 // initialization
 const app = express()
-const dbUrl = `mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@127.0.0.1`;
+const dbUrl = `mongodb://localhost:contempo-node-api/contempo-node-api`
 
 // DB Setup
 mongoose.connect(dbUrl)
@@ -19,9 +19,9 @@ mongoose.connect(dbUrl)
 // App Setup
 app.use(morgan('combined'))
 app.use(cors())
-app.use(bodyParser.json({ type: '*/*' }))
+app.use(bodyParser.json())
 
 // sample route
-index(app)
+routes(app)
 
 module.exports = app

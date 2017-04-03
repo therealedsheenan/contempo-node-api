@@ -1,8 +1,7 @@
+import userRoutes from './users/userRoutes'
 
-const index = function (app) {
-  app.get('/api/', function (req, res) {
-    res.send({ message: 'Hello from index!!!' })
-  })
+const routes = function (app) {
+  userRoutes(app)
 }
 
-module.exports = index
+module.exports = routes
