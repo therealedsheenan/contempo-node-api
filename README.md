@@ -1,4 +1,4 @@
-![logo contempo](https://github.com/therealedsheenan/contempo-node-api/blob/master/repo-assets/contempo-node-api.png)
+![logo contempo](https://github.com/therealedsheenan/contempo-node-api/blob/master/contempo-node-api.png)
 
 # Contempo-node-api
 The API specially created for implementing the authentication for [contempo-auth](https://github.com/therealedsheenan/contempo-auth).
