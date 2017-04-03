@@ -31,7 +31,7 @@
     "babel-preset-latest": "^6.24.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.24.0",
-    "bcrypt-nodejs": "^0.0.3",
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "boom": "^4.3.1",
     "cors": "^2.8.3",
@@ -46,6 +46,8 @@
     "mongoose": "^4.9.2",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
-    "passport-jwt": "^2.2.1"
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0"
   }
 }
