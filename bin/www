@@ -56,7 +56,6 @@ const normalizePort = (val) => {
   return false
 }
 
-
 /**
  * Event listener for HTTP server "listening" event.
  */
@@ -68,7 +67,6 @@ const onListening = () => {
     : 'port ' + addr.port
   debug('Listening on ' + bind)
 }
-
 
 /**
  * Get port from environment and store in Express.
@@ -86,6 +84,14 @@ const server = http.createServer(app)
 /*
 * Socket io
 * */
+const io = require('socket.io')(server)
+io.on('connection', function (socket) {
+  console.log('client connected')
+  socket.on('login', (data) => {
+    console.log(data)
+    console.log('User Login Request')
+  })
+})
 
 /**
  * Listen on provided port, on all network interfaces.
