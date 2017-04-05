@@ -31,4 +31,8 @@ USERNAME and PASSWORD credentials respectively.
 2.) Create API made in GO PL
 
 
+### Additional Information
+Added Realtime feed from the server to the user.
+Checkout the Socket.io configurations on the `src/socket/socketEvents.js`.
+
 
