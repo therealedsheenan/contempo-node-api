@@ -4,9 +4,10 @@
  * Module dependencies.
  */
 
-const app = require('../app')
 const debug = require('debug')('new:server')
-const http = require('http')
+import http from 'http'
+import app from '../app'
+import socketEvents from '../src/socket/socketEvents'
 
 /**
  * Event listener for HTTP server "error" event.
@@ -85,23 +86,9 @@ const server = http.createServer(app)
 * Socket io
 * */
 const io = require('socket.io')(server)
-io.on('connection', function (socket) {
-  console.log('client connected')
-  socket.on('login', (data) => {
-    console.log(data)
-    console.log('User Login Request')
-  })
 
-  socket.on('signup', (data) => {
-    console.log(data)
-    console.log('User Signup Request')
-  })
-
-  socket.on('signup-success', (data) => {
-    console.log('signup successful!')
-    io.emit('signup-success', data)
-  })
-})
+// import socket events
+socketEvents(io)
 
 /**
  * Listen on provided port, on all network interfaces.
