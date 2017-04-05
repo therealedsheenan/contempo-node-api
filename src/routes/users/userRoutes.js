@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Signup, SignIn } from '../../controllers/user'
+import { Signup, SignIn, AllUsers } from '../../controllers/user'
 import passportStrategy from '../../services/passportStrategy'
 
 import passport from 'passport'
@@ -9,9 +9,7 @@ const requireAuth = passport.authenticate('jwt', { session: false })
 
 const userRoutes = (app) => {
   // index route
-  app.get('/api/users/', requireAuth, (req, res) => {
-    res.send({message: 'Contempo-node-api'})
-  })
+  app.get('/api/users/', requireAuth, AllUsers)
 
   app.post('/api/user/signin', requireSignIn, SignIn)
 

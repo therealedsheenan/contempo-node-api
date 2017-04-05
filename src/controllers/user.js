@@ -33,3 +33,10 @@ export const Signup = (req, res, next) => {
 export const SignIn = (req, res, next) => {
   res.send({ token: createToken(req.user) })
 }
+
+export const AllUsers = (req, res, next) => {
+  UserSchema.find({}, (err, users) => {
+    if (err) { return next(err) }
+    res.send(users)
+  })
+}
