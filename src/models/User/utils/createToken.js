@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-const secret = process.env.SECRET_KEY
+const secret = process.env.SECRET_KEY || '123456'
 
 export const createToken = (user) => {
   return jwt.sign({

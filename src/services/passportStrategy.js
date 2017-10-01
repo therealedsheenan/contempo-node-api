@@ -6,7 +6,8 @@ import LocalStrategy from 'passport-local'
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 
-const secret = process.env.SECRET_KEY
+// fallback SECRET_KEY is just a dummy secret key
+const secret = process.env.SECRET_KEY || '123456'
 
 // local strategy(username, password, email)
 passport.use(new LocalStrategy(function (username, password, done) {

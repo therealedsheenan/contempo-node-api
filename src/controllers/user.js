@@ -9,6 +9,7 @@ export const Signup = (req, res, next) => {
     password,
     admin
   } = req.body
+  console.log(req.body)
 
   if (!email || !password || !username) {
     return res

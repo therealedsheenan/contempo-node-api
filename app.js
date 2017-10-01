@@ -19,7 +19,8 @@ mongoose.connect(dbUrl)
 // App Setup
 app.use(morgan('combined'))
 app.use(cors())
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // sample route
 routes(app)
