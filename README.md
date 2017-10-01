@@ -25,6 +25,8 @@ The SECRET_KEY will be be the requirement for hashing your password to the datab
 If you have an admin account in your mongo db, you may specify by adding your
 USERNAME and PASSWORD credentials respectively.
 
+checkout .sample-env.
+
 ### Work in progress
 1.) Implementation of a chatbox by expanding this api.
 
